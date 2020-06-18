@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import useResources from './useResource';
 
+// Class based implementation
 /* class ResourceList extends React.Component {
 	state = {
 		resources: []
@@ -30,7 +31,8 @@ import axios from 'axios';
 	}
 } */
 
-function renderList(resources) {
+// Functional implementation without reuse
+/* function renderList(resources) {
 	return resources.map(record => {
 		return <li key={record.id}>{record.title}</li>;
 	})
@@ -54,6 +56,23 @@ const ResourceList = ({resourceType}) => {
 			{renderList(resources)}
 		</ul>
 	);
+} */
+
+// Functional implementation with reuse. Logic to fetch resources moved to useResources.
+function renderList (resources) {
+	return resources.map(record => {
+		return <li key={record.id}>{record.title}</li>;
+	})
 }
+
+const ResourceList = ({resourceType}) => {
+	const resources = useResources(resourceType);
+
+	return (
+		<ul>
+			{renderList(resources)}
+		</ul>
+	);
+} 
 
 export default ResourceList;

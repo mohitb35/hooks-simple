@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ResourceList from './ResourceList';
+import UserList from './UserList';
 
 /* class App extends React.Component {
 	state = {
@@ -23,6 +24,8 @@ const App = () => {
 	const [resourceType, setResourceType] = useState('posts');
 	return(
 		<div className="ui container">
+			<h3>Users</h3>
+			<UserList />
 			<div>
 				<button onClick={() => setResourceType('posts')}>Posts</button>
 				<button onClick={() => setResourceType('todos')}>Todos</button>
