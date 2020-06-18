@@ -20,14 +20,14 @@ import ResourceList from './ResourceList';
 } */
 
 const App = () => {
-	const [resource, setResource] = useState('posts');
+	const [resourceType, setResourceType] = useState('posts');
 	return(
 		<div className="ui container">
 			<div>
-				<button onClick={() => setResource('posts')}>Posts</button>
-				<button onClick={() => setResource('todos')}>Todos</button>
+				<button onClick={() => setResourceType('posts')}>Posts</button>
+				<button onClick={() => setResourceType('todos')}>Todos</button>
 			</div>
-			<ResourceList resource={resource}/>
+			<ResourceList resourceType={resourceType}/>
 		</div>
 	);
 }
